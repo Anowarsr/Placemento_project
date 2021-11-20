@@ -47,7 +47,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect("logout")
+            return redirect("updateprofile")
 
         else:
             messages.info(request,'INVALID')
@@ -59,7 +59,8 @@ def login(request):
 
 def signup(request):
      if request.method== "POST":
-         name= request.POST['name']
+         first_name= request.POST['first_name']
+         last_name= request.POST['last_name']
          email= request.POST['email']
          address= request.POST['address']
          username= request.POST['username']
@@ -72,7 +73,7 @@ def signup(request):
              elif User.objects.filter(email=email).exists():
                 print('email taken')
              else:
-                 hr_signup(name=name, email=email, address=address, username=username, password=password1)
+                 hr_signup( first_name= first_name, last_name= last_name, email=email, address=address, username=username, password=password1)
                  user=User.objects.create_user( email=email, username=username, password=password1)
                  user.save()
                  print('user created')
@@ -83,8 +84,23 @@ def signup(request):
              print('Password is not matching..')   
              return redirect('/')
 
+
      else:
          return render(request,"signup.html")
-   
 
+#This is for update profile
+
+def updateprofile(request):
+    if request.method== "POST":
+        dept=request.POST['dept']
+        year=request.POST['year']
+        rollno=request.POST['rollno']
+        skills=request.POST['skills']
+
+        hr_models(dept=dept,year=year,rollno=rollno,skills=skills)
+
+    else:
+        return render (request,'updateprofile.html')
+
+   
     

@@ -117,13 +117,33 @@ https://templatemo.com/tm-545-finance-business
                             <form class="form-horizontal" method="POST" action="signup">{% csrf_token %}
             
 								<form>
-									<div class="input-group form-group">
+									<!-- <div class="input-group form-group">
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-user"></i></span>
 										</div>
 										<input type="text" name='name' class="form-control" placeholder="Write your name">
 										
+									</div> -->
+                  <!-- #this is for first name and last name -->
+
+                  <div class="input-group form-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-user"></i></span>
+										</div>
+										<input type="text" name='first_name' class="form-control" placeholder="Write your first name">
+										
 									</div>
+
+                  <div class="input-group form-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-user"></i></span>
+										</div>
+										<input type="text" name='last_name' class="form-control" placeholder="Write your last name">
+										
+									</div>
+
+                  <!-- #this is for first name and last name -->
+
 									<div class="input-group form-group">
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-user"></i></span>

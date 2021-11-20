@@ -3,7 +3,8 @@ from django.db import models
 # Create your models here.
 
 class hr_signup(models.Model):
-    name = models.CharField(max_length=100)
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
     email=models.EmailField(max_length=100,default='')
     address = models.CharField(max_length=400)
     phonenumber = models.IntegerField(max_length=12)
@@ -15,4 +16,9 @@ class hr_login(models.Model):
     email=models.EmailField(max_length=100,default='')
     password = models.CharField(max_length=15)
 
-# Create your models here.
+# This is for updateprofile.
+class hr_models(models.Model):
+    dept=models.CharField(max_length=50)
+    year=models.IntegerField(max_length=10)
+    rollno=models.IntegerField(max_length=20)
+    skills=models.CharField(max_length=500)
